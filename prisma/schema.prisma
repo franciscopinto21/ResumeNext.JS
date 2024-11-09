@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Certifications {
+  id              Int       @id @default(autoincrement())
+  name            String?   @db.VarChar(100)
+  provider        String?   @db.VarChar(100)
+  completion_date DateTime? @db.Date
+}
+
+model Education {
+  id          Int       @id @default(autoincrement())
+  institution String?   @db.VarChar(100)
+  degree      String?   @db.VarChar(100)
+  location    String?   @db.VarChar(100)
+  start_date  DateTime? @db.Date
+  end_date    DateTime? @db.Date
+  description String?   @db.Text
+}
+
+model Languages {
+  id          Int     @id @default(autoincrement())
+  language    String? @db.VarChar(50)
+  proficiency String? @db.VarChar(50)
+}
+
+model Profile {
+  id          Int     @id @default(autoincrement())
+  name        String? @db.VarChar(100)
+  title       String? @db.VarChar(100)
+  description String? @db.Text
+  address     String? @db.VarChar(255)
+  phone       String? @db.VarChar(20)
+  linkedin    String? @db.VarChar(255)
+  github      String? @db.VarChar(255)
+  email       String? @db.VarChar(100)
+}
+
+model Skills {
+  id         Int     @id @default(autoincrement())
+  category   String? @db.VarChar(50)
+  skill_name String? @db.VarChar(100)
+}
+
+model WorkExperience {
+  id          Int       @id @default(autoincrement())
+  title       String?   @db.VarChar(100)
+  company     String?   @db.VarChar(100)
+  location    String?   @db.VarChar(100)
+  start_date  DateTime? @db.Date
+  end_date    DateTime? @db.Date
+  description String?   @db.Text
+}
