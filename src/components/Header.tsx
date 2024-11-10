@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,13 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center text-2xl font-semibold">
           {/* Logo ao lado do nome */}
-          <img src="/logo.png" alt="Logo" className="mr-2 h-10 w-10" />
+          <Image
+            src={"/logo.png"}
+            alt={"logo"}
+            width={40}
+            height={40}
+            className="mr-3 h-10 w-10"
+          />
 
           {/* Nome com link */}
           <a
